@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+.navigation {
+	display:block;
+	border-bottom:1px solid #000;
+	margin:0;
+	padding:10px;
+}
+.navigation li {
+	display:inline-block;
+	list-style:none;
+	margin:0 10px 0 0;
+	padding:0;
+}
+
+.content {
+	display:flex;
+}
