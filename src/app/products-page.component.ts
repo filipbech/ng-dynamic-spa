@@ -1,17 +1,14 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-	selector:'subpage',
+	selector:'products-page',
 	template:`
 		<h1>{{data.header}}</h1>
-		<div class="content">
-			<div class="full">
-				<spots [spots]="data.spots"></spots>
-			</div>
-		</div>
+		<div [innerHTML]="data.content"></div>
+		<product-list></product-list>
 	`
 })
-export class SubpageComponent {
+export class ProductsPageComponent {
 	@Input() 
 	public data;
 

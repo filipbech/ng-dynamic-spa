@@ -22,6 +22,8 @@ export class AppComponent {
 	},{
 		text:'Underside 2',
 		link:'coDQrWQZxK'
+	},{
+		text:'Produkter',
+		link:'bUGgYdIhQi'
 	}];
-
 }

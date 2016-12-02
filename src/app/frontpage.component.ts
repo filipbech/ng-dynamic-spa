@@ -18,7 +18,7 @@ export class FrontpageComponent {
 	public data;
 
 	ngOnChanges(newData,oldData) {
-		console.log(newData,oldData);
+		//console.log(newData,oldData);
 	}
 
 	ngOnInit() {

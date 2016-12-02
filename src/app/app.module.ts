@@ -7,6 +7,7 @@ import { routing } from './app.routes';
 
 //Providers
 import { PageResolve } from './page.resolve';
+import { ProductsService } from './products.service';
 
 //Components
 import { AppComponent } from './app.component';
@@ -14,10 +15,16 @@ import { PageComponent } from './page.component';
 import { FrontpageComponent } from './frontpage.component';
 import { SubpageComponent } from './subpage.component';
 import { SubpageSidebarComponent } from './subpage-sidebar.component';
+import { ProductsPageComponent } from './products-page.component';
 import { SpotsComponent } from './spots.component';
 
-import {GallerySpotComponent} from './gallery-spot.component';
-import {TextSpotComponent} from './text-spot.component';
+import { GallerySpotComponent } from './gallery-spot.component';
+import { TextSpotComponent } from './text-spot.component';
+
+import { ProductComponent } from './product.component';
+import { ProductListComponent } from './product-list.component';
+import { FavoriteComponent } from './favorite.component';
+import { AddToBasketComponent } from './add-to-basket.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +35,12 @@ import {TextSpotComponent} from './text-spot.component';
     SubpageSidebarComponent,
     SpotsComponent,
     GallerySpotComponent,
-    TextSpotComponent
+    TextSpotComponent,
+    ProductListComponent,
+    ProductComponent,
+    FavoriteComponent,
+    AddToBasketComponent,
+    ProductsPageComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +49,8 @@ import {TextSpotComponent} from './text-spot.component';
     routing
   ],
   providers: [
-    PageResolve
+    PageResolve,
+    ProductsService
   ],
   bootstrap: [AppComponent]
 })
