@@ -37,6 +37,8 @@ export class ProductsService {
 					this._products = products.map(product => {
 						product.basketCount = 0;
 						return product;
+					}).sort((a,b)=> {
+						return a[this.defaultParams.sortBy] > b[this.defaultParams.sortBy] ? 1 : -1
 					});
 					return this.applyParamsImmutably(params);
 				});
