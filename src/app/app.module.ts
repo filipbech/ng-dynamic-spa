@@ -1,7 +1,6 @@
 //Modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-//import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { routing } from './app.routes';
 
@@ -11,16 +10,16 @@ import { ProductsService } from './products.service';
 
 //Components
 import { AppComponent } from './app.component';
+
+// Page-layout components
 import { PageComponent } from './page.component';
-import { FrontpageComponent } from './frontpage.component';
-import { SubpageComponent } from './subpage.component';
-import { SubpageSidebarComponent } from './subpage-sidebar.component';
-import { ProductsPageComponent } from './products-page.component';
+import { GenericPageDirective, PageComponents } from './generic-page.directive';
+
+// Spots components
 import { SpotsComponent } from './spots.component';
+import { GenericSpotDirective, Spots } from './generic-spot.directive';
 
-import { GallerySpotComponent } from './gallery-spot.component';
-import { TextSpotComponent } from './text-spot.component';
-
+//other components
 import { ProductComponent } from './product.component';
 import { ProductListComponent } from './product-list.component';
 import { FavoriteComponent } from './favorite.component';
@@ -29,22 +28,25 @@ import { AddToBasketComponent } from './add-to-basket.component';
 @NgModule({
   declarations: [
     AppComponent,
+
+    //dynamic pages
     PageComponent,
-    FrontpageComponent,
-    SubpageComponent,
-    SubpageSidebarComponent,
+    GenericPageDirective,
+    PageComponents,
+
+    //dynamic spots
     SpotsComponent,
-    GallerySpotComponent,
-    TextSpotComponent,
+    GenericSpotDirective,
+    Spots,
+
+    //other components
     ProductListComponent,
     ProductComponent,
     FavoriteComponent,
-    AddToBasketComponent,
-    ProductsPageComponent
+    AddToBasketComponent
   ],
   imports: [
     BrowserModule,
-    //FormsModule,
     HttpModule,
     routing
   ],
@@ -52,6 +54,12 @@ import { AddToBasketComponent } from './add-to-basket.component';
     PageResolve,
     ProductsService
   ],
+  entryComponents:[
+    Spots,
+    PageComponents
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+

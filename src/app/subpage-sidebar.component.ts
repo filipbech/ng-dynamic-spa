@@ -20,6 +20,8 @@ export class SubpageSidebarComponent {
 	@Input() 
 	public data;
 
+	static ref = 'Subpage-sidebar';
+
 	ngOnChanges(newData,oldData) {
 		//console.log(newData,oldData);
 	}

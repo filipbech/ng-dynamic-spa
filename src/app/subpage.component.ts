@@ -15,6 +15,8 @@ export class SubpageComponent {
 	@Input() 
 	public data;
 
+	static ref = 'Subpage';
+
 	ngOnChanges(newData,oldData) {
 		//console.log(newData,oldData);
 	}

@@ -7,6 +7,10 @@ import { Component, Input } from '@angular/core';
 	`
 })
 export class TextSpotComponent {
+
+	static ref = 'text';
+
 	@Input()
 	public data;
+	constructor() {}
 }

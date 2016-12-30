@@ -5,10 +5,7 @@ import { PageResolve } from './page.resolve';
 
 @Component({
 	template:`
-		<frontpage [data]="pageData.data" *ngIf="pageData?.template === 'Frontpage'"></frontpage>
-		<subpage [data]="pageData.data" *ngIf="pageData?.template === 'Subpage'"></subpage>
-		<subpage-sidebar [data]="pageData.data" *ngIf="pageData?.template === 'Subpage-sidebar'"></subpage-sidebar>
-		<products-page [data]="pageData.data" *ngIf="pageData?.template === 'products'"></products-page>
+		<div generic-page [data]="pageData"></div>
 	`
 })
 export class PageComponent {

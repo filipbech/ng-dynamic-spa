@@ -12,6 +12,8 @@ export class ProductsPageComponent {
 	@Input() 
 	public data;
 
+	static ref = 'products';
+
 	ngOnChanges(newData,oldData) {
 		//console.log(newData,oldData);
 	}

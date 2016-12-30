@@ -7,6 +7,9 @@ import { Component, Input } from '@angular/core';
 	`
 })
 export class GallerySpotComponent {
+
+	static ref = 'gallery';
+
 	@Input()
 	public data;
 }

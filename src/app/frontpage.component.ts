@@ -17,6 +17,8 @@ export class FrontpageComponent {
 	@Input() 
 	public data;
 
+	static ref = 'Frontpage'
+
 	ngOnChanges(newData,oldData) {
 		//console.log(newData,oldData);
 	}
