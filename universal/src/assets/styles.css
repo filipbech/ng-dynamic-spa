@@ -1,0 +1,48 @@
+/* You can add global styles to this file, and also import other style files */
+
+h5 {
+	margin:0 0 10px;
+	font-size:16px;
+}
+
+.navigation {
+	display:block;
+	border-bottom:1px solid #000;
+	margin:0;
+	padding:10px;
+}
+.navigation li {
+	display:inline-block;
+	list-style:none;
+	margin:0 10px 0 0;
+	padding:0;
+}
+
+.content {
+	display:flex;
+}
+
+.items {
+	display:flex;
+	flex-wrap: wrap;
+}
+product {
+	font-size:12px;
+	flex: 0 1 49%;
+	border:1px solid #000;
+	position:relative;
+}
+favorite {
+	position:absolute;
+	right:80px;
+	top:0;
+}
+favorite button {
+	border:0;
+	background:none;
+	margin:0;
+	padding:10px;
+	cursor:pointer;
+	font-size:22px !important;
+	color:red;
+}
