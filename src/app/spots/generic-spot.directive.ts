@@ -1,9 +1,6 @@
 import { Directive, ViewContainerRef, ComponentFactoryResolver, Input } from '@angular/core';
 
-import { TextSpotComponent } from './text-spot.component';
-import { GallerySpotComponent } from './gallery-spot.component';
-
-export const Spots = [TextSpotComponent, GallerySpotComponent];
+import {Spots} from './spots.module';
 
 @Directive({
 	selector:'[generic-spot]'

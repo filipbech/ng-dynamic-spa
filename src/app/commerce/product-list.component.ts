@@ -39,6 +39,7 @@ export class ProductListComponent {
 	}
 
 	sort(key) {
+		alert('key: '+key);
 		this.params.sortBy = key;
 		this.productsService.getProducts(this.params)
 			.subscribe(products => {

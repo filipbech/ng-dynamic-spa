@@ -1,65 +1,29 @@
-//Modules
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { SharedModule } from './shared/shared.module';
 import { routing } from './app.routes';
 
-//Providers
-import { PageResolve } from './page.resolve';
-import { ProductsService } from './products.service';
-
-//Components
 import { AppComponent } from './app.component';
 
-// Page-layout components
-import { PageComponent } from './page.component';
-import { GenericPageDirective, PageComponents } from './generic-page.directive';
+import {PagesModule} from './pages/pages.module';
+import {SpotsModule} from './spots/spots.module';
 
-// Spots components
-import { SpotsComponent } from './spots.component';
-import { GenericSpotDirective, Spots } from './generic-spot.directive';
 
-//other components
-import { ProductComponent } from './product.component';
-import { ProductListComponent } from './product-list.component';
-import { FavoriteComponent } from './favorite.component';
-import { AddToBasketComponent } from './add-to-basket.component';
+import { CommerceModule } from './commerce/commerce.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-
-    //dynamic pages
-    PageComponent,
-    GenericPageDirective,
-    PageComponents,
-
-    //dynamic spots
-    SpotsComponent,
-    GenericSpotDirective,
-    Spots,
-
-    //other components
-    ProductListComponent,
-    ProductComponent,
-    FavoriteComponent,
-    AddToBasketComponent
+  declarations: [ 
+  	AppComponent
   ],
   imports: [
-    BrowserModule,
-    HttpModule,
-    routing
+  	SharedModule,
+  	routing,
+
+  	PagesModule,
+  	SpotsModule,
+
+  	CommerceModule
   ],
-  providers: [
-    PageResolve,
-    ProductsService
-  ],
-  entryComponents:[
-    Spots,
-    PageComponents
-  ],
-  bootstrap: [AppComponent]
 })
-export class AppModule { }
-
-
+export class AppModule {
+}
+export { AppComponent } from './app.component';

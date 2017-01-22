@@ -24,7 +24,7 @@ export class PageComponent {
 			})
 			.subscribe(data => {
 				this.pageData = data;
-				document.title = this.pageData.title + ' - NG2 spa-POC';
+			//	document.title = this.pageData.title + ' - NG2 spa-POC';
 			});
 
 	}

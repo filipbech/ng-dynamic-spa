@@ -1,7 +1,7 @@
 import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { PageComponent } from './page.component';
+import {PageComponent} from './pages/pages.module';
 
 const appRoutes: Routes = [
   {

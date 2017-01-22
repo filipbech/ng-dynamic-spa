@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs';
 
+import {CacheService} from '../shared/cache.service';
+
 const url = 'http://www.json-generator.com/api/json/get/celLKmqymq';
 
 @Injectable()
@@ -41,6 +43,9 @@ export class ProductsService {
 						return a[this.defaultParams.sortBy] > b[this.defaultParams.sortBy] ? 1 : -1
 					});
 					return this.applyParamsImmutably(params);
+				})
+				.do(_=> {
+					this.cache.set('products',this._products);
 				});
 		}
 	}
@@ -69,5 +74,11 @@ export class ProductsService {
 		return Observable.of(this.applyParamsImmutably(params));
 	}
 
-	constructor(private http: Http) {}
+	constructor(private http: Http, private cache: CacheService) {
+
+		if(this.cache.get('products')) {
+			this._products = this.cache.get('products');
+		}
+
+	}
 }

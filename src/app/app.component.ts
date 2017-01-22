@@ -12,8 +12,13 @@ import { Component } from '@angular/core';
   `,
 })
 export class AppComponent {
+	pages:any[];
+	constructor() {
+		this.pages = pages;
+	}
+}
 
-	public pages = [{
+export const pages = [{
 		text:'Forside',
 		link:'bICCgfCphK'
 	},{
@@ -26,4 +31,3 @@ export class AppComponent {
 		text:'Produkter',
 		link:'bUGgYdIhQi'
 	}];
-}

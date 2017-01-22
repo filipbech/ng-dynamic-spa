@@ -3,6 +3,8 @@ import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';  
 import { Observable } from "rxjs/Observable";
 
+import {CacheService} from '../shared/cache.service';
+
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
@@ -11,7 +13,7 @@ import 'rxjs/add/operator/do';
 @Injectable()
 export class PageResolve implements Resolve<any> {
 
-  constructor(private http: Http) { }
+  constructor(private http: Http, private cacheService: CacheService) { }
 
   public resolveUrlSegment(urlseg) {
     let url = this.sanitizeUrlSegment(urlseg);
@@ -19,8 +21,16 @@ export class PageResolve implements Resolve<any> {
   }
 
   public resolveUrl(url:string) {
+
+    if(this.cacheService.get(url)) {
+      return Observable.of(this.cacheService.get(url));
+    }
+
     return this.http.get('http://www.json-generator.com/api/json/get'+url)
-      .map(response=> response.json());
+      .map(response=> response.json())
+      .do(data => {
+        this.cacheService.set(url,data);
+      });
   }
 
   private sanitizeUrlSegment(url) {

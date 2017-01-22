@@ -1,16 +1,6 @@
 import { Directive, ViewContainerRef, ComponentFactoryResolver, Input } from '@angular/core';
 
-import { FrontpageComponent } from './frontpage.component';
-import { SubpageComponent } from './subpage.component';
-import { ProductsPageComponent } from './products-page.component';
-import { SubpageSidebarComponent } from './subpage-sidebar.component';
-
-export const PageComponents = [
-	FrontpageComponent, 
-	SubpageComponent, 
-	ProductsPageComponent, 
-	SubpageSidebarComponent
-];
+import {PageComponents} from './pages.module';
 
 @Directive({
 	selector:'[generic-page]'
