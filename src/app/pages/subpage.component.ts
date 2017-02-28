@@ -17,13 +17,4 @@ export class SubpageComponent {
 
 	static ref = 'Subpage';
 
-	ngOnChanges(newData,oldData) {
-		//console.log(newData,oldData);
-	}
-
-	ngOnInit() {
-		// DO DATA-SPECIFIC ALL BUILD-UP
-		// AND TEAR-DOWN FROM ngOnChanges
-	}
-
 }

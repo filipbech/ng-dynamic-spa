@@ -16,8 +16,8 @@ export class ProductComponent {
 	@Input() 
 	public product;
 
-	@Output() private toggleFavorite = new EventEmitter();
-	@Output() private purchase = new EventEmitter();
+	@Output() public toggleFavorite = new EventEmitter();
+	@Output() public purchase = new EventEmitter();
 
 	onToggleFavorite() {
 		this.toggleFavorite.emit(this.product);

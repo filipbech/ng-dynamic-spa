@@ -8,10 +8,10 @@ import {Spots} from './spots.module';
 export class GenericSpotDirective {
 
 	@Input() 
-	private spotType;
+	public spotType;
 
 	@Input() 
-	private spotData;
+	public spotData;
 
 	constructor(
 		private _vcRef: ViewContainerRef, 

@@ -14,9 +14,9 @@ import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from 
 })
 export class FavoriteComponent {
 
-	@Input() product:boolean;
+	@Input() product:any;
 
-	@Output() private toggleFavorite = new EventEmitter();
+	@Output() public toggleFavorite = new EventEmitter();
 
 	onToggle() {
 		this.toggleFavorite.emit();

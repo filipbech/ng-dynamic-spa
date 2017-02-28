@@ -3,6 +3,8 @@
 universal/dist/*
 universal/node_modules/*
 
+*.ngfactory.ts
+
 # compiled output
 /dist
 /tmp

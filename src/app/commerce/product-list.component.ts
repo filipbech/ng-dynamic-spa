@@ -17,14 +17,14 @@ import { ProductsService } from './products.service';
 })
 export class ProductListComponent {
 
-	private params = {
+	public params = {
 		sortBy: 'name',
 		sortDir: '<',
 		filter:''
 	}
 
-	private sortBy:string = 'name';
-	private products: any[];
+	public sortBy:string = 'name';
+	public products: any[];
 
 	toggleShowFavorites() {
 		if (this.params.filter) {

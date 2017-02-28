@@ -22,13 +22,4 @@ export class SubpageSidebarComponent {
 
 	static ref = 'Subpage-sidebar';
 
-	ngOnChanges(newData,oldData) {
-		//console.log(newData,oldData);
-	}
-
-	ngOnInit() {
-		// DO DATA-SPECIFIC ALL BUILD-UP
-		// AND TEAR-DOWN FROM ngOnChanges
-	}
-
 }

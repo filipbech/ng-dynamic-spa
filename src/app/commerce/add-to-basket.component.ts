@@ -17,10 +17,10 @@ import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from 
 export class AddToBasketComponent {
 
 	@Input()
-	private product;
+	public product;
 
 	@Output()
-	private purchase = new EventEmitter;
+	public purchase = new EventEmitter;
 
 	buy(count) {
 		this.purchase.emit(count);
