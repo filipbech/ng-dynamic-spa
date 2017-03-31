@@ -7,12 +7,20 @@ import { AppComponent } from './app.component';
 import {PagesModule} from './pages/pages.module';
 import {SpotsModule} from './spots/spots.module';
 
+import { RouteReuseStrategy } from '@angular/router';
+import { CustomReuseStrategy } from './router.reuse.strategy';
 
 import { CommerceModule } from './commerce/commerce.module';
 
 @NgModule({
   declarations: [ 
   	AppComponent
+  ],
+  providers:[
+    { 
+      provide: RouteReuseStrategy, 
+      useClass: CustomReuseStrategy 
+    }
   ],
   imports: [
   	SharedModule,

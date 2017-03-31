@@ -14,6 +14,8 @@ import {PageResolve} from './page.resolve'
 import {CommerceModule} from '../commerce/commerce.module';
 import {SpotsModule} from '../spots/spots.module';
 
+import {RouterModule} from '@angular/router';
+
 
 export const PageComponents = [
 	FrontpageComponent, 
@@ -33,7 +35,8 @@ export {PageComponent} from './page.component';
 	imports:[
 		SharedModule,
 		CommerceModule,
-		SpotsModule
+		SpotsModule, 
+		RouterModule
 	],
 	providers:[
 		PageResolve
