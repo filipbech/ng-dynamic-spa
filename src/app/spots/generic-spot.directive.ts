@@ -1,26 +1,35 @@
 import { Directive, ViewContainerRef, ComponentFactoryResolver, Input } from '@angular/core';
 
-import {Spots} from './spots.module';
+import { Spots } from './spots.module';
 
 @Directive({
 	selector:'[generic-spot]'
 })
 export class GenericSpotDirective {
 
-	@Input() 
-	public spotType;
+	@Input() public spotType: string;
 
-	@Input() 
-	public spotData;
+	@Input() public spotData;
 
 	constructor(
-		private _vcRef: ViewContainerRef, 
-		private _cfResolver: ComponentFactoryResolver
+		private viewContainer: ViewContainerRef, 
+		private cfResolver: ComponentFactoryResolver
 	) { }
 
-	ngOnInit() {
-		const cf = this._cfResolver.resolveComponentFactory(Spots.find(component => component.ref === this.spotType));
-		const _component = this._vcRef.createComponent(cf);
-		_component.instance['data'] = this.spotData;
+	ngOnChanges(change) {
+		if(change) {
+			//Start out by clearing the view container
+			this.viewContainer.clear();
+
+			//Find the ComponentClass of the desired spotComponent (based on spotType)
+			const componentClass = Spots.find(component => component.ref === this.spotType);
+
+			//Resolve the ComponentFactory
+			const spotComponentFactory = this.cfResolver.resolveComponentFactory(componentClass);
+			
+			//Create the component, attach it to the viewContainer and bind the data
+			const spotComponent = this.viewContainer.createComponent(spotComponentFactory);
+			spotComponent.instance['data'] = this.spotData;
+		}
 	}
 }

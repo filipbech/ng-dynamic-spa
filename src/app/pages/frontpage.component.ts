@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
 	selector:'frontpage',
@@ -14,9 +14,16 @@ import { Component, Input } from '@angular/core';
 	`
 })
 export class FrontpageComponent {
-	@Input() 
-	public data;
+	static ref = 'Frontpage'; //Template-reference
 
-	static ref = 'Frontpage'
+	@Input() public data;
 
 }
+
+
+
+
+
+
+
+

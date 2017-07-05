@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
-import {SharedModule} from '../shared/shared.module';
 
 import {FrontpageComponent} from './frontpage.component';
 import {SubpageComponent} from './subpage.component';
 import {SubpageSidebarComponent} from './subpage-sidebar.component';
 import {ProductsPageComponent} from './products-page.component';
 
-import {GenericPageDirective} from './generic-page.directive';
 import {PageComponent} from './page.component';
 
 import {PageResolve} from './page.resolve'
@@ -16,6 +14,7 @@ import {SpotsModule} from '../spots/spots.module';
 
 import {RouterModule} from '@angular/router';
 
+import { SharedModule } from '../shared/shared.module';
 
 export const PageComponents = [
 	FrontpageComponent, 
@@ -28,7 +27,6 @@ export {PageComponent} from './page.component';
 
 @NgModule({
 	declarations:[
-		GenericPageDirective,
 		PageComponent,
 		...PageComponents
 	],
@@ -39,7 +37,7 @@ export {PageComponent} from './page.component';
 		RouterModule
 	],
 	providers:[
-		PageResolve
+		PageResolve,
 	],
 	entryComponents:[
 		PageComponents

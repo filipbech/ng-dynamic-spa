@@ -1,40 +1,4 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
-
-universal/dist/*
-universal/node_modules/*
-
-*.ngfactory.ts
-
-# compiled output
-/dist
-/tmp
-
-# dependencies
-/node_modules
-/bower_components
-
-# IDEs and editors
-/.idea
-/.vscode
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-
-# misc
-/.sass-cache
-/connect.lock
-/coverage/*
-/libpeerconnection.log
-npm-debug.log
-testem.log
-/typings
-
-# e2e
-/e2e/*.js
-/e2e/*.map
-
-#System Files
+dist
+node_modules
+.vscode
 .DS_Store
-Thumbs.db

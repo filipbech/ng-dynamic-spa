@@ -5,7 +5,7 @@ import { Component, Input } from '@angular/core';
 	template:`
 		<h1>{{data.header}}</h1>
 		<div [innerHTML]="data.content"></div>
-		<product-list></product-list>
+		<product-list *noSSR></product-list>
 	`
 })
 export class ProductsPageComponent {

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { SharedModule } from './../shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
+
 
 import {AddToBasketComponent} from './add-to-basket.component';
 import {FavoriteComponent} from './favorite.component';
@@ -15,11 +16,11 @@ import {ProductsService} from './products.service';
   	ProductComponent,
   	ProductListComponent
   ],
-  imports: [
-  	SharedModule
-  ],
   providers:[
   	ProductsService
+  ],
+  imports:[
+    SharedModule
   ],
   exports: [
     ProductListComponent

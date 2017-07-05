@@ -1,32 +1,34 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, ActivatedRouteSnapshot, RouterState, Params } from '@angular/router';
-
-import { PageResolve } from './page.resolve';
-import {pages} from '../app.component';
+import { Component, ComponentFactoryResolver, ViewContainerRef, ChangeDetectionStrategy } from '@angular/core';
+import { ActivatedRoute,ActivatedRouteSnapshot } from '@angular/router';
+import { PageComponents } from './pages.module';
+import { Title } from '@angular/platform-browser';
 
 @Component({
-	template:`
-		<ul class="navigation">
-			<li *ngFor="let page of pages"><a [routerLink]="['/',page.link]">{{page.text}}</a></li>
-		</ul>
-		<div generic-page [data]="pageData"></div>
-	`
+	changeDetection:ChangeDetectionStrategy.OnPush,
+	template: ' ' //Template cannot be empty
 })
 export class PageComponent {
-	
-	public pageData:any;
-	public pages:any[];
-
-	constructor(private activatedRoute: ActivatedRoute, 
-				private pageResolve: PageResolve
-			) { }
+	constructor(
+		private activatedRoute: ActivatedRoute, 
+		private cfResolver: ComponentFactoryResolver,
+		private viewContainer: ViewContainerRef,
+		private title:Title
+	) {}
 
 	ngOnInit() {
+		//Read the content from the route snapshot ('content' is the name of the resolve)
+		const content = this.activatedRoute.snapshot.data['content'];
 
-		this.pages = pages;
+		//Find the ComponentClass of the desired pageComponent (based on template)
+		const ComponentClass = PageComponents.find(component => component.ref === content['template']);
 
-		this.activatedRoute.data.subscribe(data=> {
-			this.pageData = data['content'];
-		});
+		this.title.setTitle(content.title);
+
+		//Resolve the ComponentFactory
+		const pageComponentFactory = this.cfResolver.resolveComponentFactory(ComponentClass);
+
+		//Create the component, attach it to the viewContainer and bind the data
+		const pageComponent = this.viewContainer.createComponent(pageComponentFactory);
+		pageComponent.instance['data'] = content.data;
 	}
 }

@@ -1,6 +1,12 @@
 import { NgModule } from '@angular/core';
-import { SharedModule } from './shared/shared.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { APP_BASE_HREF } from '@angular/common';
+import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
+
 import { routing } from './app.routes';
+
+import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
 
@@ -12,26 +18,25 @@ import { CustomReuseStrategy } from './router.reuse.strategy';
 
 import { CommerceModule } from './commerce/commerce.module';
 
+
 @NgModule({
-  declarations: [ 
-  	AppComponent
-  ],
+	imports: [
+    SharedModule,
+    HttpModule,
+
+    routing,
+
+    PagesModule,
+    SpotsModule,
+    CommerceModule
+	],
   providers:[
     { 
       provide: RouteReuseStrategy, 
       useClass: CustomReuseStrategy 
     }
   ],
-  imports: [
-  	SharedModule,
-  	routing,
-
-  	PagesModule,
-  	SpotsModule,
-
-  	CommerceModule
-  ],
+	declarations: [ AppComponent ],
+  exports: [ AppComponent ]
 })
-export class AppModule {
-}
-export { AppComponent } from './app.component';
+export class AppModule {}

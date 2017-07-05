@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {SharedModule} from '../shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
 
 import {GenericSpotDirective} from './generic-spot.directive';
 import {SpotsComponent} from './spots.component'
@@ -17,12 +17,12 @@ export const Spots = [TextSpotComponent, GallerySpotComponent];
 		SpotsComponent,
 		...Spots
 	],
-	imports:[
-		SharedModule
-	],
 	entryComponents:[
 		SpotsComponent,
 		...Spots
+	],
+	imports:[
+		SharedModule
 	],
 	exports:[
 		SpotsComponent

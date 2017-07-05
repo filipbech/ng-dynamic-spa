@@ -1,7 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
 	selector:'spots',
+	changeDetection: ChangeDetectionStrategy.OnPush,
 	template: `
 		<div *ngFor="let spot of spots"
 			generic-spot 
@@ -10,7 +11,5 @@ import { Component, Input } from '@angular/core';
 	`
 })
 export class SpotsComponent {
-	@Input()
-	public spots;
-
+	@Input() public spots;
 }
